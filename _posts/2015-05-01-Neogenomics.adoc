@@ -1,0 +1,37 @@
+= Neogenomics
+
+Neogenomics is a tool that maps genetics networks that are usually stored in esoteric flat files into a graph database. Here is the MAP Kinase pathway from kegg: link:MAPK:http://app30919455:WK7SIe3b0i5LdoQRrYhf@app30919455.sb02.stations.graphenedb.com:24789/[hsa04010]. 
+
+Once you get a result with one of the queries given below click on one of the nodes to open up the display properties dialog box. Click on the tab with an eye on it and change the caption to display_name.
+
+==In the input box you can input some queries like:
+
+*Show cascade of interactions that activate BRAF
+---
+MATCH (n:`gene`)-[:activation]->(m:`gene`), (k:`gene`)-[r*]->(n:`gene`) where m.name[0] = 'BRAF' return n,m,k
+---
+*Show all genes in RAS family (regex)
+---
+MATCH (n:`gene`) where n.name[0] =~ '.*RAS.*' return n
+---
+*Get the pathway between AKT2 and NFATC1
+---
+MATCH (n:`gene`)-[r*]->(m:`gene`) where 'AKT2' in n.name and 'NFATC1' in m.name return n,m,r
+---
+*Get all genes that MAP3K1 phosphorylates
+---
+MATCH (n:`gene`)-[:phosphorylation]->(m:`gene`) where 'MAP3K1' in n.name return n,m
+---
+*Get all genes that Phosphorylate MAP3K1
+---
+MATCH (n:`gene`)-[:phosphorylation]->(m:`gene`) where 'MAP3K1' in m.name return n,m
+---
+*Get all genes upstream of MAP3K1
+---
+MATCH (n:`gene`)-[*]->(m:`gene`) where 'MAP3K1' in m.name return n,m
+---
+*Get all genes downstream of AKT2
+---
+MATCH (n:`gene`)-[*]->(m:`gene`) where 'AKT2' in n.name return n,m
+---
+All queries on the MapKinase kegg pathway (http://www.genome.jp/kegg-bin/show_pathway?hsa04010) are supported.
