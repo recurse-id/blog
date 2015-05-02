@@ -1,5 +1,5 @@
 = Neogenomics
-
+:hp-tags: Projects
 Neogenomics is a tool that maps genetics networks that are usually stored in esoteric flat files into a graph database. Here is the MAP Kinase pathway from kegg: link:http://app30919455:WK7SIe3b0i5LdoQRrYhf@app30919455.sb02.stations.graphenedb.com:24789/[hsa04010]. 
 
 TIP: Once you get a result with one of the queries given below click on one of the nodes to open up the display properties dialog box. Click on the tab with an eye on it and change the caption to display_name.
