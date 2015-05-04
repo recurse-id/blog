@@ -9,7 +9,7 @@ In my sister's traditional Indian wedding (you know the one with 4 days of fesit
 
 - Machine learn on a photo album created by professional photographer (break up the dataset by occasion since a different heuristic maybe be required for different occassions i.e. Weddings vs. Birthdays)
 
-- Classify features like the angle of faces (as a matrix transformation), focus, facial expressions, etc.
+- Classify features like: the angles of faces (as a matrix transformation), focus, facial expressions, etc.
 
 - Attach depth sensing camera to a drone.
 
